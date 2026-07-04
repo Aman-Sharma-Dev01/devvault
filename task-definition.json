@@ -1,111 +1,47 @@
 {
-  "taskDefinitionArn": "arn:aws:ecs:ap-northeast-1:143982428252:task-definition/docker-aws-devvault3:3",
-  "containerDefinitions": [
+  "name": "main-server3",
+  "image": "143982428252.dkr.ecr.ap-northeast-1.amazonaws.com/aws-docker/devvault:latest",
+  "cpu": 0,
+  "portMappings": [
     {
-      "name": "main-server3",
-      "image": "143982428252.dkr.ecr.ap-northeast-1.amazonaws.com/aws-docker/devvault:latest",
-      "cpu": 0,
-      "portMappings": [
-        {
-          "containerPort": 3000,
-          "hostPort": 3000,
-          "protocol": "tcp",
-          "name": "main-server-port3",
-          "appProtocol": "http"
-        }
-      ],
-      "essential": true,
-      "environment": [
-        {
-          "name": "MONGODB_URI",
-          "value": "mongodb+srv://codewalee_db_user:qtN464yr9XD7aTuE@cluster0.hdyw86j.mongodb.net/"
-        },
-        {
-          "name": "PORT",
-          "value": "3000"
-        },
-        {
-          "name": "JWT_SECRET",
-          "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWUsImlhdCI6MTUxNjIzOTAyMn0.KMUFsIDTnFmyG3nMiGM6H9FNFUROf3wh7SmqJp-QV30"
-        },
-        {
-          "name": "ENCRYPTION_KEY",
-          "value": "mV5VCyA2zUF1w3MQh1A9dq8Jbw98FakGFg4mEAl7w9A"
-        }
-      ],
-      "environmentFiles": [],
-      "mountPoints": [],
-      "volumesFrom": [],
-      "ulimits": [],
-      "logConfiguration": {
-        "logDriver": "awslogs",
-        "options": {
-          "awslogs-group": "/ecs/docker-aws-devvault3",
-          "awslogs-create-group": "true",
-          "awslogs-region": "ap-northeast-1",
-          "awslogs-stream-prefix": "ecs"
-        },
-        "secretOptions": []
-      },
-      "systemControls": []
+      "containerPort": 3000,
+      "hostPort": 3000,
+      "protocol": "tcp",
+      "name": "main-server-port3",
+      "appProtocol": "http"
     }
   ],
-  "family": "docker-aws-devvault3",
-  "taskRoleArn": "arn:aws:iam::143982428252:role/docker-aws-devvault",
-  "executionRoleArn": "arn:aws:iam::143982428252:role/docker-aws-devvault",
-  "networkMode": "awsvpc",
-  "revision": 3,
-  "volumes": [],
-  "status": "ACTIVE",
-  "requiresAttributes": [
+  "essential": true,
+  "environment": [],
+  "mountPoints": [],
+  "volumesFrom": [],
+  "secrets": [
     {
-      "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
+      "name": "ENCRYPTION_KEY",
+      "valueFrom": "arn:aws:secretsmanager:ap-northeast-1:143982428252:secret:devvault/prod-8qhLRR:ENCRYPTION_KEY::"
     },
     {
-      "name": "ecs.capability.execution-role-awslogs"
+      "name": "JWT_SECRET",
+      "valueFrom": "arn:aws:secretsmanager:ap-northeast-1:143982428252:secret:devvault/prod-8qhLRR:JWT_SECRET::"
     },
     {
-      "name": "com.amazonaws.ecs.capability.ecr-auth"
+      "name": "MONGODB_URI",
+      "valueFrom": "arn:aws:secretsmanager:ap-northeast-1:143982428252:secret:devvault/prod-8qhLRR:MONGODB_URI::"
     },
     {
-      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
-    },
-    {
-      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.21"
-    },
-    {
-      "name": "com.amazonaws.ecs.capability.task-iam-role"
-    },
-    {
-      "name": "ecs.capability.execution-role-ecr-pull"
-    },
-    {
-      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
-    },
-    {
-      "name": "ecs.capability.task-eni"
-    },
-    {
-      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
+      "name": "PORT",
+      "valueFrom": "arn:aws:secretsmanager:ap-northeast-1:143982428252:secret:devvault/prod-8qhLRR:PORT::"
     }
   ],
-  "placementConstraints": [],
-  "compatibilities": [
-    "EC2",
-    "FARGATE",
-    "MANAGED_INSTANCES"
-  ],
-  "runtimePlatform": {
-    "cpuArchitecture": "X86_64",
-    "operatingSystemFamily": "LINUX"
+  "logConfiguration": {
+    "logDriver": "awslogs",
+    "options": {
+      "awslogs-group": "/ecs/docker-aws-devvault3",
+      "awslogs-create-group": "true",
+      "awslogs-region": "ap-northeast-1",
+      "awslogs-stream-prefix": "ecs"
+    },
+    "secretOptions": []
   },
-  "requiresCompatibilities": [
-    "FARGATE"
-  ],
-  "cpu": "256",
-  "memory": "512",
-  "registeredAt": "2026-07-04T15:26:40.391Z",
-  "registeredBy": "arn:aws:iam::143982428252:user/devvault-docker",
-  "enableFaultInjection": false,
-  "tags": []
+  "systemControls": []
 }
