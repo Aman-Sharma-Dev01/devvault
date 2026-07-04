@@ -79,7 +79,7 @@ export default function Login() {
             <Code2 className="w-8 h-8 text-white relative z-10 group-hover:scale-110 transition-transform duration-300" />
           </div>
           <h1 className="text-3xl font-extrabold text-white tracking-tight font-sans">
-            DevVault
+            DevVaulttest
           </h1>
           <p className="text-slate-400 mt-2 text-sm max-w-[280px] leading-relaxed">
             {mode === 'login' && 'Authenticate to access your encrypted project environments.'}
