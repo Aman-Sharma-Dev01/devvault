@@ -1,0 +1,10 @@
+{
+  "name": "devvault",
+  "private": true,
+  "version": "1.0.0",
+  "description": "DevVault - Developer Dashboard (Monorepo)",
+  "scripts": {
+    "install:all": "cd frontend && npm install && cd ../backend && npm install",
+    "dev": "echo Run separately: 'cd backend && npm start' and 'cd frontend && npm run dev'"
+  }
+}

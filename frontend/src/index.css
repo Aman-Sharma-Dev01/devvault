@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  
+  --color-clay-bg: #EAF6FF;
+  --color-clay-bg-secondary: #D9F0FF;
+  --color-clay-card: #FFFFFF;
+  --color-clay-accent: #33A9FF;
+  --color-clay-accent-light: #4FC3FF;
+  --color-clay-accent-dark: #1D9BFF;
+  --color-clay-text: #1E293B;
+  --color-clay-text-secondary: #64748B;
+  
+  --color-slate-150: #eef2f6;
+  --color-slate-250: #dce4f0;
+  --color-slate-850: #192339;
+}
+
+/* Claymorphic Utility classes */
+.clay-bg-gradient {
+  background: radial-gradient(circle at 10% 20%, rgba(234, 246, 255, 1) 0%, rgba(217, 240, 255, 1) 100%);
+}
+
+.clay-card {
+  background: #FFFFFF;
+  border-radius: 32px;
+  box-shadow: 10px 10px 20px rgba(170, 200, 220, 0.25), -10px -10px 20px rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.clay-card-flat {
+  background: #FFFFFF;
+  border-radius: 24px;
+  box-shadow: 4px 4px 8px rgba(170, 200, 220, 0.15), -4px -4px 8px rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  transition: all 0.25s ease;
+}
+
+.clay-card:hover {
+  transform: translateY(-4px) scale(1.005);
+  box-shadow: 16px 16px 32px rgba(170, 200, 220, 0.35), -16px -16px 32px rgba(255, 255, 255, 0.95);
+}
+
+.clay-sidebar {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  border-radius: 34px;
+  box-shadow: 10px 10px 24px rgba(170, 200, 220, 0.22), -10px -10px 24px rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.clay-button {
+  background: linear-gradient(135deg, #4FC3FF 0%, #1D9BFF 100%);
+  border-radius: 20px;
+  color: #FFFFFF;
+  box-shadow: 6px 6px 12px rgba(29, 155, 255, 0.25), -6px -6px 12px rgba(255, 255, 255, 0.9), inset -3px -3px 6px rgba(0, 0, 0, 0.1), inset 3px 3px 6px rgba(255, 255, 255, 0.3);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  font-weight: 600;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.clay-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 8px 8px 16px rgba(29, 155, 255, 0.35), -8px -8px 16px rgba(255, 255, 255, 0.95), inset -2px -2px 4px rgba(0, 0, 0, 0.1), inset 2px 2px 4px rgba(255, 255, 255, 0.4);
+}
+
+.clay-button:active {
+  transform: translateY(1px);
+  box-shadow: inset 4px 4px 8px rgba(0, 0, 0, 0.15), inset -4px -4px 8px rgba(255, 255, 255, 0.5);
+}
+
+.clay-button-secondary {
+  background: #FFFFFF;
+  border-radius: 20px;
+  color: #1E293B;
+  box-shadow: 4px 4px 8px rgba(170, 200, 220, 0.2), -4px -4px 8px rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  transition: all 0.2s ease-in-out;
+  font-weight: 600;
+}
+
+.clay-button-secondary:hover {
+  transform: translateY(-1px);
+  box-shadow: 6px 6px 12px rgba(170, 200, 220, 0.3), -6px -6px 12px rgba(255, 255, 255, 0.95);
+}
+
+.clay-button-secondary:active {
+  transform: translateY(1px);
+  box-shadow: inset 3px 3px 6px rgba(170, 200, 220, 0.25), inset -3px -3px 6px rgba(255, 255, 255, 0.85);
+}
+
+.clay-input {
+  border-radius: 18px;
+  background: #F4FAFF;
+  box-shadow: inset 4px 4px 8px rgba(170, 200, 220, 0.3), inset -4px -4px 8px rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(170, 200, 220, 0.25);
+  transition: all 0.25s ease;
+  outline: none;
+}
+
+.clay-input:focus {
+  box-shadow: inset 2px 2px 4px rgba(170, 200, 220, 0.15), inset -2px -2px 4px rgba(255, 255, 255, 0.8), 0 0 0 4px rgba(51, 169, 255, 0.2);
+  border-color: rgba(51, 169, 255, 0.5);
+  background: #FFFFFF;
+}
+
+/* Inset inputs for standard tags as fallback */
+input[type="text"], input[type="password"], input[type="email"], input[type="number"], input[type="url"], input[type="date"], textarea, select {
+  @apply text-slate-800 placeholder-slate-400 font-sans;
+}
+
+/* Float Keyframes */
+@keyframes softFloat {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-soft-float {
+  animation: softFloat 4s ease-in-out infinite;
+}
+
+@keyframes slowBlob {
+  0% { transform: translate(0px, 0px) scale(1); }
+  33% { transform: translate(30px, -50px) scale(1.1); }
+  66% { transform: translate(-20px, 20px) scale(0.95); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+
+.animate-slow-blob {
+  animation: slowBlob 12s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  100% { transform: translateX(100%); }
+}
