@@ -18,19 +18,19 @@
       "environment": [
         {
           "name": "MONGODB_URI",
-          "value": "arn:aws:secretsmanager:ap-northeast-1:143982428252:secret:devvault/prod-8qhLRR:MONGODB_URI::"
+          "valueFrom": "arn:aws:secretsmanager:ap-northeast-1:143982428252:secret:devvault/prod-8qhLRR:MONGODB_URI::"
         },
         {
           "name": "PORT",
-          "value": "arn:aws:secretsmanager:ap-northeast-1:143982428252:secret:devvault/prod-8qhLRR:PORT::"
+          "valueFrom": "arn:aws:secretsmanager:ap-northeast-1:143982428252:secret:devvault/prod-8qhLRR:PORT::"
         },
         {
           "name": "JWT_SECRET",
-          "value": "arn:aws:secretsmanager:ap-northeast-1:143982428252:secret:devvault/prod-8qhLRR:JWT_SECRET::"
+          "valueFrom": "arn:aws:secretsmanager:ap-northeast-1:143982428252:secret:devvault/prod-8qhLRR:JWT_SECRET::"
         },
         {
           "name": "ENCRYPTION_KEY",
-          "value": "arn:aws:secretsmanager:ap-northeast-1:143982428252:secret:devvault/prod-8qhLRR:ENCRYPTION_KEY::"
+          "valueFrom": "arn:aws:secretsmanager:ap-northeast-1:143982428252:secret:devvault/prod-8qhLRR:ENCRYPTION_KEY::"
         }
       ],
       "environmentFiles": [],
